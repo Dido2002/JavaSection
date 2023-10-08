@@ -1,27 +1,48 @@
+// Java program to find the number of days in a month 
+// using a switch statement
+
 import java.util.Scanner;
-public class Main{
-    public static void main(String []args){
 
-        System.out.println("Enter a month");
-        Scanner scanner = new Scanner(System.in);
+public class Main {
+  public static void main(String[] args) {
+    Scanner SN = new Scanner(System.in);
 
-        String month = scanner.nextLine();
+    int month = 0;
+    int days;
 
-        int days = 0;
+    System.out.printf("Enter month number: ");
+    month = SN.nextInt();
 
-        switch (month) {
-            case "January", "March", "May", "July", "August", "October", "December" -> days = 31;
-            case "April", "June", "September", "November" -> days = 31;
-            case "February" -> days = 28;
-            default -> {
-                System.out.println("You have a wrong input!");
-                return;
-            }
-        }
-        System.out.println("This month - " + month + " has " + days +" days ");
+    switch (month) {
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+      days = 30;
+      break;
 
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+      days = 31;
+      break;
 
+    case 2:
+      days = 28;
+      break;
+
+    default:
+      days = 0;
+      break;
     }
 
+    if (days != 0)
+      System.out.printf("Number of days in %d month is: %d\n", month, days);
+    else
+      System.out.printf("You have entered an invalid month!!!\n");
+  }
 }
-
